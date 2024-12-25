@@ -27,7 +27,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <revision>2.0.0-SNAPSHOT</revision>
+        <revision>2.1.0-SNAPSHOT</revision>
         <mysql.version>8.0.30</mysql.version>
         <postgresql.version>42.3.8</postgresql.version>
         <oracle.version>11.2.0.4</oracle.version>

@@ -1,6 +1,6 @@
 const api = {
     init: '/generator/init', 
-    tables: '/generator/tables',
+    searchTables: '/generator/tables',
     generateCode: '/generator/generate',
   }
   

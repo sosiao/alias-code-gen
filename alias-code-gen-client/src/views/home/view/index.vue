@@ -68,7 +68,7 @@ import CodeTable from '@/components/code-table/index.vue'
 import CodeDescription from '@/components/code-description/index.vue'
 import CodeSimpleTable from '@/components/code-simple-table/index.vue'
 
-import { initApi, getTablesApi, generateCodeApi } from '../api/index'
+import * as api from '../api/index'
 import { formatListToOptions, formatListToArrays } from '@/utils/format'
 
 const projectRules = {
@@ -228,7 +228,7 @@ export default {
         { type: "switch", label: "Mapper注解", prop: "useMapperAnnotation", },
       ]
 
-      const data = await initApi()
+      const data = await api.initialize()
       if (data === false) return
       this.$refs.projectsRef.setOptions('dbType', formatListToOptions(data.dbTypes, 'itemText', 'itemValue'))
       this.$refs.projectsRef.setOptions('xmlTargetDir', formatListToOptions(data.xmlDirs, 'itemText', 'itemValue'))
@@ -242,8 +242,8 @@ export default {
       }
       this.current++
       if (this.current === 1) {
-        const param = await this.$refs.projectsRef.getFormModel();
-        const tables = await getTablesApi(param)
+        const param = this.$refs.projectsRef.getFormModel();
+        const tables = await api.searchTables(param)
         this.$refs.tablesRef.setDataSource(tables);
         Object.assign(this.formModel, param);
       }
@@ -276,8 +276,8 @@ export default {
         }
       }
       if (this.current === 4) {
-        const globalStrateg = this.$refs.globalStrategyRef.getFormModel();
-        Object.assign(this.formModel, globalStrateg)
+        const globalStrategy = this.$refs.globalStrategyRef.getFormModel();
+        Object.assign(this.formModel, globalStrategy)
         
         const entityStrategy = this.$refs.entityStrategyRef.getFormModel();
         Object.assign(this.formModel, entityStrategy)
@@ -310,7 +310,7 @@ export default {
       this.current--
     },
     generate() {
-      generateCodeApi(this.formModel)
+      api.generateCode(this.formModel)
     },
   },
 };
