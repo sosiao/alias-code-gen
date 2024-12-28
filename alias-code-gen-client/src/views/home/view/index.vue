@@ -158,6 +158,18 @@ export default {
   },
   methods: {
     async init() {
+      this.initView()
+      const data = await api.initialize()
+      if (!data) {
+        this.$message.error('初始化数据失败')
+        return
+      }
+      this.initList = { ...data }
+
+      this.$refs.projectRef.setOptions('dbType', formatListToOptions(this.initList.dbTypes, 'itemText', 'itemValue'))
+      this.$refs.projectRef.setOptions('xmlTargetDir', formatListToOptions(this.initList.xmlDirs, 'itemText', 'itemValue'))
+    },
+    initView() {
       this.projectCfg.itemList = [
         { type: "input", label: "项目路径", prop: "projectLocation", help: "生成代码的项目路径，配置到项目根目录即可" },
         { type: "input", label: "开发者", prop: "developer", help: "开发人员名称" },
@@ -168,8 +180,7 @@ export default {
         { type: "input", label: "数据库", prop: "dbName", help: "数据库的名称" },
         { type: "input", label: "用户名", prop: "userName", help: "数据库的用户名" },
         { type: "input", label: "密码", prop: "password", help: "数据库的密码" },
-        { type: "select", label: "Xml", prop: "xmlTargetDir", help: "生成XML的目录",
-        }
+        { type: "select", label: "Xml", prop: "xmlTargetDir", help: "生成XML的目录"}
       ]
 
       this.tableNameCfg.itemList = [
@@ -227,11 +238,6 @@ export default {
         { type: "switch", label: "BaseColumnList", prop: "generateBaseColumnList" },
         { type: "switch", label: "Mapper注解", prop: "useMapperAnnotation" }
       ]
-
-      const data = await api.initialize()
-      if (data === false) return
-      this.$refs.projectRef.setOptions('dbType', formatListToOptions(data.dbTypes, 'itemText', 'itemValue'))
-      this.$refs.projectRef.setOptions('xmlTargetDir', formatListToOptions(data.xmlDirs, 'itemText', 'itemValue'))
     },
     async next() {
       if (this.current === 0) {
