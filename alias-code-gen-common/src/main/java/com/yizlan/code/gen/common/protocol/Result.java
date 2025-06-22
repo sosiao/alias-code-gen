@@ -120,7 +120,12 @@ public class Result<T> implements TerResult<String, String, T>, Serializable {
     }
 
     @Override
-    public Result<T> success(Object... args) {
+    public Result<T> success() {
         return new Result<>(Boolean.TRUE, null);
+    }
+
+    @Override
+    public Result<T> failure() {
+        return build(Boolean.FALSE, null, null, null);
     }
 }
