@@ -35,7 +35,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Result<T> implements TerResult<String, String, T>, Serializable {
+public class Result<T> implements TerResult<Result<T>,String, String, T>, Serializable {
     private static final long serialVersionUID = 1L;
 
     // 返回是否成功
@@ -117,6 +117,11 @@ public class Result<T> implements TerResult<String, String, T>, Serializable {
      */
     public static <T> Result<T> failure(String code, String msg) {
         return build(Boolean.FALSE, msg, code, null);
+    }
+
+    @Override
+    public Result<T> self() {
+        return this;
     }
 
     @Override

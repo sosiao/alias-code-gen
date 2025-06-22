@@ -19,7 +19,7 @@ package com.yizlan.code.gen.web.advice;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yizlan.gelato.canonical.protocol.TerResult;
+import com.yizlan.code.gen.common.protocol.Result;
 import com.yizlan.twilight.web.annotation.AbstractGlobalResponseBodyAdvice;
 import com.yizlan.twilight.web.autoconfigure.texture.HarmonyProperties;
 import org.springframework.core.MethodParameter;
@@ -36,11 +36,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @since 1.0
  */
 @RestControllerAdvice
-public class GlobalResponseBodyAdvice extends AbstractGlobalResponseBodyAdvice<String, String, Object, Object> {
+public class GlobalResponseBodyAdvice extends AbstractGlobalResponseBodyAdvice<Result<Object>, String, String, Object, Object> {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    public GlobalResponseBodyAdvice(TerResult<String, String, Object> terResult, HarmonyProperties harmonyProperties) {
-        super(terResult, harmonyProperties);
+    public GlobalResponseBodyAdvice(Result<Object> protocol, HarmonyProperties harmonyProperties) {
+        super(protocol, harmonyProperties);
     }
 
     @Override
@@ -52,12 +52,12 @@ public class GlobalResponseBodyAdvice extends AbstractGlobalResponseBodyAdvice<S
             try {
                 OBJECT_MAPPER.setDefaultPropertyInclusion(JsonInclude.Include.NON_NULL);
 
-                return OBJECT_MAPPER.writeValueAsString(terResult.success().data(data));
+                return OBJECT_MAPPER.writeValueAsString(protocol.success().data(data));
             } catch (JsonProcessingException e) {
-                return terResult.failure().message("json数据转化异常");
+                return protocol.failure().message("json数据转化异常");
             }
         } else {
-            return terResult.success().data(data);
+            return protocol.success().data(data);
         }
     }
 }

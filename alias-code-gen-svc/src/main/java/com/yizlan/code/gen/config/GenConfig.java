@@ -17,7 +17,6 @@
 package com.yizlan.code.gen.config;
 
 import com.yizlan.code.gen.common.protocol.Result;
-import com.yizlan.gelato.canonical.protocol.TerResult;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -34,7 +33,7 @@ import org.springframework.web.filter.CorsFilter;
 public class GenConfig {
 
     @Bean
-    public TerResult<String, String, Object> terResult() {
+    public Result<Object> protocol() {
         return new Result<>();
     }
 
