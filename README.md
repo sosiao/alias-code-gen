@@ -5,7 +5,6 @@ Alias-code-gen is a code generator toolkit implemented by Mybatis-Plus, which su
 
 # Getting started
 
-
 - Configuration your maven enviroment
 
 - Go to the root path of this project, then using command below :

@@ -1,9 +1,9 @@
 package com.yizlan.code.gen.service.impl;
 
-import com.yizlan.code.gen.service.DruidService;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.yizlan.code.gen.service.DruidService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -1,9 +1,9 @@
 package com.yizlan.code.gen.factory;
 
-import com.yizlan.code.gen.constant.Constants;
 import com.baomidou.mybatisplus.generator.config.IKeyWordsHandler;
 import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler;
 import com.baomidou.mybatisplus.generator.keywords.PostgreSqlKeyWordsHandler;
+import com.yizlan.code.gen.constant.Constants;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 

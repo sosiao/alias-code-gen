@@ -28,29 +28,32 @@ public class GeneratorController {
 
     /**
      * 获取数据库类型
+     *
      * @return 数据库类型
      */
     @GetMapping("/generator/init")
-    public ProjectSetting init(){
+    public ProjectSetting init() {
         return generateService.init();
     }
 
     /**
      * 获取数据表
+     *
      * @param jdbcParam 数据库参数
      * @return 数据表
      */
     @PostMapping("/generator/tables")
-    public List<TableInfo> getTableList(@RequestBody JdbcParam jdbcParam){
+    public List<TableInfo> getTableList(@RequestBody JdbcParam jdbcParam) {
         return generateService.getTableList(jdbcParam);
     }
 
     /**
      * 生成代码
+     *
      * @param generatorParam 生成参数
      */
     @PostMapping("/generator/generate")
-    public void generateCode(@RequestBody GeneratorParam generatorParam){
+    public void generateCode(@RequestBody GeneratorParam generatorParam) {
         generateService.generateCode(generatorParam);
     }
 }
