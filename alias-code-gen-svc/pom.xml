@@ -15,10 +15,6 @@
     <dependencies>
         <dependency>
             <groupId>com.yizlan</groupId>
-            <artifactId>alias-code-gen-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.yizlan</groupId>
             <artifactId>alias-code-gen-web</artifactId>
         </dependency>
         <dependency>
