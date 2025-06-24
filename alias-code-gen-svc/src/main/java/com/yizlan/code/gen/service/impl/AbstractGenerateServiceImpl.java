@@ -1,14 +1,14 @@
 package com.yizlan.code.gen.service.impl;
 
-import com.yizlan.code.gen.dto.JdbcParam;
-import com.yizlan.code.gen.enums.JdbcRegularUrl;
-import com.yizlan.code.gen.i18n.I18nConstants;
-import com.yizlan.code.gen.service.DruidService;
-import com.yizlan.code.gen.common.support.ServiceAssert;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.util.JdbcUtils;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.yizlan.code.gen.common.support.ServiceAssert;
+import com.yizlan.code.gen.dto.JdbcParam;
+import com.yizlan.code.gen.enums.JdbcRegularUrl;
+import com.yizlan.code.gen.i18n.I18nConstants;
+import com.yizlan.code.gen.service.DruidService;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;

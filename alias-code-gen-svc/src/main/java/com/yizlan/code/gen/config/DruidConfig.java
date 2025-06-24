@@ -19,7 +19,9 @@ public class DruidConfig {
 
     @Bean
     public ServletRegistrationBean DruidStatViewServlet() {
-        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(
+                new StatViewServlet(), "/druid/*"
+        );
         // 白名单：
         servletRegistrationBean.addInitParameter("allow", "127.0.0.1");
         // 登录查看信息的账号密码.
