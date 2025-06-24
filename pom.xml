@@ -16,6 +16,30 @@
         <module>alias-code-gen-svc</module>
     </modules>
 
+    <name>${project.artifactId}</name>
+    <description>This is a code generator that can generate java or kotlin projects with mybatis-plus.</description>
+    <url>https://atomgit.com/sosiao/alias-code-gen</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Zen Gershon</name>
+            <email>aiilary@163.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@atomgit.com:sosiao/alias-code-gen.git</connection>
+        <developerConnection>scm:git:git@atomgit.com:sosiao/alias-code-gen.git</developerConnection>
+        <url>https://atomgit.com/sosiao/alias-code-gen.git</url>
+    </scm>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
